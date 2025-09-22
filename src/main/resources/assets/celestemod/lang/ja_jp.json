@@ -1,0 +1,9 @@
+{
+  "item.celestemod.celestetestitem" : "セレステテストアイテム",
+
+  "key.category.celestemod" : "セレステ",
+  "key.celestemod.dash" : "ダッシュ",
+  "key.celestemod.dashreset" : "ダッシュリセット",
+
+  "creativetab.celeste_tab": "セレステ"
+}

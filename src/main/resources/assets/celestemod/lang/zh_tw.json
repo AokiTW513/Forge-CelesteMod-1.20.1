@@ -1,0 +1,9 @@
+{
+  "item.celestemod.celestetestitem" : "蔚藍測試物件",
+
+  "key.category.celestemod" : "蔚藍",
+  "key.celestemod.dash" : "衝刺",
+  "key.celestemod.dashreset" : "重置衝刺",
+
+  "creativetab.celeste_tab": "蔚藍"
+}

@@ -1,7 +1,10 @@
 package com.aokitw513.celestemod;
 
+import com.aokitw513.celestemod.items.ModCreativeModTabs;
+import com.aokitw513.celestemod.items.ModItems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,6 +37,10 @@ public class CelesteMod
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        //IDKIDKIDK
+        ModCreativeModTabs.register(modEventBus);
+        ModItems.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -60,7 +67,10 @@ public class CelesteMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+        {
+            event.accept(ModItems.CelesteTestItem);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

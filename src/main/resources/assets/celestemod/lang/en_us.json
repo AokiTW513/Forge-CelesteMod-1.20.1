@@ -1,0 +1,9 @@
+{
+  "item.celestemod.celestetestitem" : "CelesteTestItem",
+
+  "key.category.celestemod" : "Celeste",
+  "key.celestemod.dash" : "Dash",
+  "key.celestemod.dashreset" : "Reset Dash",
+
+  "creativetab.celeste_tab": "Celeste"
+}
