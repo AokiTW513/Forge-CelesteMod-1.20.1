@@ -1,4 +1,4 @@
-package com.aokitw513.celestemod.events;
+package com.aokitw513.celestemod.client;
 
 import com.aokitw513.celestemod.CelesteMod;
 import com.aokitw513.celestemod.Dash.DashCounter;
@@ -17,7 +17,9 @@ import net.minecraftforge.fml.common.Mod;
 
 public class ClientEvent {
     private static DashCounter dashCounter = new DashCounter();
-    private static final double distance = 10; // 移動距離
+    private static final double distance = 20; // 移動距離
+
+    private static int dashCount = 2;
 
     @Mod.EventBusSubscriber(modid = CelesteMod.MOD_ID, value = Dist.CLIENT)
     public static class ClientForgeEvents
@@ -63,11 +65,12 @@ public class ClientEvent {
     @Mod.EventBusSubscriber(modid = CelesteMod.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientModBusEvents
     {
+        //Register完後會在設定裡面出現可以設定的按鍵
         @SubscribeEvent
         public static void onKeyRegister(RegisterKeyMappingsEvent event)
         {
             event.register(ModKeyBinds.dashKey);
+            event.register(ModKeyBinds.dashResetKey);
         }
-
     }
 }

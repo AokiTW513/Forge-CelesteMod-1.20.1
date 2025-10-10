@@ -3,7 +3,7 @@ package com.aokitw513.celestemod.Dash;
 import net.minecraft.nbt.CompoundTag;
 
 public class DashCounter{
-    private int dashCount = 3;
+    private int dashCount = 2;
 
     public int getDashCount() {
         return dashCount;
@@ -18,7 +18,7 @@ public class DashCounter{
     }
 
     public void resetDash() {
-        dashCount = 3;
+        dashCount = 2;
         System.out.println("Reset Dash to" + dashCount + ".");
     }
 

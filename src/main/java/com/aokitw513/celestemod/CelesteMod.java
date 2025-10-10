@@ -67,10 +67,10 @@ public class CelesteMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS)
-        {
-            event.accept(ModItems.CelesteTestItem);
-        }
+//        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+//        {
+//            event.accept(ModItems.CelesteTestItem);
+//        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
