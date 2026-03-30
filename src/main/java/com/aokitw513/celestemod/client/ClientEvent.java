@@ -15,7 +15,8 @@ import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-public class ClientEvent {
+public class ClientEvent
+{
     private static DashCounter dashCounter = new DashCounter();
     private static final double distance = 20; // 移動距離
 
@@ -28,15 +29,18 @@ public class ClientEvent {
         public static void onKeyInput(InputEvent.Key event)
         {
             Player player = Minecraft.getInstance().player;
-            if (player == null) {
+            if (player == null)
+            {
                 return;
             }
 
             //Press Dash
             if(ModKeyBinds.dashKey.consumeClick())
             {
-                player.getCapability(DashCounterProvider.playerDashCount).ifPresent(dash -> {
-                    if (dash.getDashCount() > 0) {
+                player.getCapability(DashCounterProvider.playerDashCount).ifPresent( dash ->
+                {
+                    if (dash.getDashCount() > 0)
+                    {
                         dash.consumeDash(); // 減 1
 
                         Vec3 forward = player.getLookAngle().scale(distance);
@@ -45,7 +49,9 @@ public class ClientEvent {
                         player.sendSystemMessage(Component.literal(
                                 "OMG u Dashed :O Dash Left: " + dash.getDashCount()
                         ));
-                    } else {
+                    }
+                    else
+                    {
                         player.sendSystemMessage(Component.literal("No Dash left."));
                     }
                 });
@@ -54,10 +60,16 @@ public class ClientEvent {
             //Press Dash Reset
             if(ModKeyBinds.dashResetKey.consumeClick())
             {
-                player.getCapability(DashCounterProvider.playerDashCount).ifPresent(dash ->{
+                player.getCapability(DashCounterProvider.playerDashCount).ifPresent(dash ->
+                {
                     dash.resetDash();
                     player.sendSystemMessage(Component.literal("Reset Dash Count."));
                 });
+            }
+
+            if(ModKeyBinds.testKey.consumeClick())
+            {
+                player.sendSystemMessage(Component.literal("Hello World"));
             }
         }
     }

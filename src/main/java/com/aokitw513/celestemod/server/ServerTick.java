@@ -11,7 +11,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = CelesteMod.MOD_ID, value = Dist.DEDICATED_SERVER)
-public class ServerTick {
+public class ServerTick
+{
     private static boolean wasInAir = false;
 
     @SubscribeEvent
@@ -32,7 +33,8 @@ public class ServerTick {
         {
             if (wasInAir)
             {
-                player.getCapability(DashCounterProvider.playerDashCount).ifPresent(dash ->{
+                player.getCapability(DashCounterProvider.playerDashCount).ifPresent(dash ->
+                {
                         dash.resetDash();
                         player.sendSystemMessage(Component.literal("Reset Dash Count."));
                 });

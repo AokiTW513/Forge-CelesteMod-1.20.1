@@ -5,28 +5,34 @@ import net.minecraft.nbt.CompoundTag;
 public class DashCounter{
     private int dashCount = 2;
 
-    public int getDashCount() {
+    public int getDashCount()
+    {
         return dashCount;
     }
 
-    public void setDashCount(int count) {
+    public void setDashCount(int count)
+    {
         this.dashCount = count;
     }
 
-    public void consumeDash() {
+    public void consumeDash()
+    {
         if(dashCount > 0) dashCount--;
     }
 
-    public void resetDash() {
+    public void resetDash()
+    {
         dashCount = 2;
         System.out.println("Reset Dash to" + dashCount + ".");
     }
 
-    public void saveNBTData(CompoundTag nbt){
+    public void saveNBTData(CompoundTag nbt)
+    {
         nbt.putInt("dashCount", dashCount);
     }
 
-    public void loadNBTData(CompoundTag nbt){
+    public void loadNBTData(CompoundTag nbt)
+    {
         dashCount = nbt.getInt("dashCount");
     }
 }

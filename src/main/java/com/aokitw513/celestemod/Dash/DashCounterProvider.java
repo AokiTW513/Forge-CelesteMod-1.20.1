@@ -12,7 +12,8 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class DashCounterProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+public class DashCounterProvider implements ICapabilityProvider, INBTSerializable<CompoundTag>
+{
     public static final ResourceLocation ID = new ResourceLocation("celestemod", "dash");
 
     public static Capability<DashCounter> playerDashCount = CapabilityManager.get(new CapabilityToken<DashCounter>() { });
@@ -20,7 +21,8 @@ public class DashCounterProvider implements ICapabilityProvider, INBTSerializabl
     private DashCounter dashCounter = null;
     private final LazyOptional<DashCounter> optional = LazyOptional.of(this::createDashCounter);
 
-    private DashCounter createDashCounter(){
+    private DashCounter createDashCounter()
+    {
         if(this.dashCounter == null)
         {
             this.dashCounter = new DashCounter();
@@ -30,7 +32,8 @@ public class DashCounterProvider implements ICapabilityProvider, INBTSerializabl
     }
 
     @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side)
+    {
         if(cap == playerDashCount)
         {
             return optional.cast();
@@ -40,14 +43,16 @@ public class DashCounterProvider implements ICapabilityProvider, INBTSerializabl
     }
 
     @Override
-    public CompoundTag serializeNBT() {
+    public CompoundTag serializeNBT()
+    {
         CompoundTag nbt = new CompoundTag();
         createDashCounter().saveNBTData(nbt);
         return nbt;
     }
 
     @Override
-    public void deserializeNBT(CompoundTag nbt) {
+    public void deserializeNBT(CompoundTag nbt)
+    {
         createDashCounter().loadNBTData(nbt);
     }
 }

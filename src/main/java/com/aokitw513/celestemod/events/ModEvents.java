@@ -9,10 +9,13 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = CelesteMod.MOD_ID)
-public class ModEvents {
+public class ModEvents
+{
     @SubscribeEvent
-    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
-        if (event.getObject() instanceof Player) {
+    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event)
+    {
+        if (event.getObject() instanceof Player)
+        {
             event.addCapability(DashCounterProvider.ID, new DashCounterProvider());
         }
     }
