@@ -35,4 +35,12 @@ public final class ModKeyBinds
             GLFW.GLFW_KEY_G,
             KEY_CATEGORY
     );
+
+    public static KeyMapping climbKey = new KeyMapping(
+            KEY_DASHRESET,
+            KeyConflictContext.IN_GAME,
+            InputConstants.Type.KEYSYM,
+            GLFW.GLFW_KEY_B,
+            KEY_CATEGORY
+    );
 }

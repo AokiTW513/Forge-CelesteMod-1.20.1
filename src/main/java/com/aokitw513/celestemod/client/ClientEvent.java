@@ -44,7 +44,7 @@ public class ClientEvent
                         dash.consumeDash(); // 減 1
 
                         Vec3 forward = player.getLookAngle().scale(distance);
-                        player.move(MoverType.SELF, forward);
+                        player.push(forward.x/15, forward.y/15, forward.z/15);
 
                         player.sendSystemMessage(Component.literal(
                                 "OMG u Dashed :O Dash Left: " + dash.getDashCount()
@@ -71,6 +71,11 @@ public class ClientEvent
             {
                 player.sendSystemMessage(Component.literal("Hello World"));
             }
+
+            if(ModKeyBinds.climbKey.consumeClick())
+            {
+                player.sendSystemMessage(Component.literal("Hello World"));
+            }
         }
     }
 
@@ -83,6 +88,7 @@ public class ClientEvent
         {
             event.register(ModKeyBinds.dashKey);
             event.register(ModKeyBinds.dashResetKey);
+            event.register(ModKeyBinds.climbKey);
         }
     }
 }
