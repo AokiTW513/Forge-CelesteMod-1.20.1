@@ -15,6 +15,8 @@ public class ClientTick
 {
     private static boolean wasInAir = false;
 
+    private static boolean facingWall = false;
+
     @SubscribeEvent
     public static void onClientTick(TickEvent.ClientTickEvent event)
     {

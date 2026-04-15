@@ -44,7 +44,7 @@ public class ClientEvent
                         dash.consumeDash(); // 減 1
 
                         Vec3 forward = player.getLookAngle().scale(distance);
-                        player.push(forward.x/15, forward.y/15, forward.z/15);
+                        player.setDeltaMovement(forward.x/15, forward.y/15, forward.z/15);
 
                         player.sendSystemMessage(Component.literal(
                                 "OMG u Dashed :O Dash Left: " + dash.getDashCount()
@@ -76,6 +76,11 @@ public class ClientEvent
             {
                 player.sendSystemMessage(Component.literal("Hello World"));
             }
+        }
+
+        public static void staminaBar()
+        {
+
         }
     }
 
