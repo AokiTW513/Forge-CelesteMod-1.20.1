@@ -5,10 +5,13 @@ import com.aokitw513.celestemod.Dash.DashCounterProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import static com.aokitw513.celestemod.handler.KeyHandler.jumpTick;
 
 @Mod.EventBusSubscriber(modid = CelesteMod.MOD_ID, value = Dist.CLIENT)
 public class ClientTick
@@ -40,6 +43,7 @@ public class ClientTick
                         dash.resetDash();
                         player.sendSystemMessage(Component.literal("Reset Dash Count."));
                 });
+                jumpTick = 0;
             }
             wasInAir = false;
         }

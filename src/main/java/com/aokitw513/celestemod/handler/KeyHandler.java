@@ -10,6 +10,8 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(value = Dist.CLIENT)
 public class KeyHandler
 {
+    public static int jumpTick = 0;
+
     @SubscribeEvent
     public static void onClientTick(TickEvent.ClientTickEvent event)
     {
@@ -20,6 +22,13 @@ public class KeyHandler
         if (mc.options.keyJump.isDown())
         {
             mc.player.sendSystemMessage(Component.literal("Omg! Bro just Jump!"));
+
+            if (jumpTick <= 7)
+            {
+                jumpTick+=1;
+                mc.player.setDeltaMovement(mc.player.getDeltaMovement().x,mc.player.getDeltaMovement().y+0.1,mc.player.getDeltaMovement().z);
+            }
+
         }
     }
 }
